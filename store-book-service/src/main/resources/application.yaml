@@ -1,0 +1,22 @@
+server:
+  port: 4444
+
+spring:
+  application:
+    name: store-book-service
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          auto-add-partitions: true
+      bindings:
+        input:
+          destination: check-topic
+          group: books
+          binder: kafka
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: books
