@@ -1,11 +1,14 @@
 server:
-  port: 4444
+  port: 9999
 
 spring:
   application:
     name: store-book-service
   cloud:
     stream:
+      function:
+        bindings:
+          storeProcessing-in-0: input
       kafka:
         binder:
           brokers: localhost:9092

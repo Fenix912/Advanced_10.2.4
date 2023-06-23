@@ -1,14 +1,18 @@
 server:
-  port: 8082
+  port: 5555
 
 spring:
   application:
-    name: check-book-service
+    name: creation-book-service
   cloud:
     stream:
       kafka:
         binder:
           brokers: localhost:9092
+          auto-add-partitions: true
+      function:
+        bindings:
+          bookProcessing-out-0: output
       bindings:
         output:
           destination: book-topic

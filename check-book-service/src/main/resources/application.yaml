@@ -1,5 +1,5 @@
 server:
-  port: 3333
+  port: 7777
 
 spring:
   application:
@@ -10,6 +10,10 @@ spring:
         binder:
           brokers: localhost:9092
           auto-add-partitions: true
+      function:
+          bindings:
+            checkProcessing-in-0: input
+            checkProcessing-out-0: output
       bindings:
         input:
           destination: book-topic
